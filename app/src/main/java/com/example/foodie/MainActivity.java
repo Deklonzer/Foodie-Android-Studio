@@ -9,6 +9,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,6 +30,18 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+
+        String[] mobileArray = {"Afghan","American","Chinese","Indian",
+                "Italian","Mexican","Thai","Vietnamese"};
+        ArrayAdapter adapter = new ArrayAdapter<String>(this,
+                R.layout.activity_listview, mobileArray);
+
+        ListView listView = (ListView) findViewById(R.id.mobile_list);
+        listView.setAdapter(adapter);
     }
 
+    public void hello(View view) {
+        Toast.makeText(getApplicationContext(), "hi", Toast.LENGTH_SHORT).show();
+    }
 }
